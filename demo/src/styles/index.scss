@@ -1,0 +1,53 @@
+@import '~normalize-scss';
+@include normalize();
+
+@import './doc';
+
+
+h1 {
+    font-size: 3rem;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.examples {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-row-gap: 3rem;
+
+    max-width: 700px;
+    margin: 3rem auto;
+}
+
+hr {
+    width: 100%;
+    height: 1px;
+    border: 0;
+    background-color: #000;
+}
+
+.example {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.source-block {
+    padding: 1.5rem;
+    background-color: rgb(68, 17, 78);
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+
+.rotated-block {
+    background-color: rgb(16, 94, 27);
+    font-size: 1.5rem;
+    color: #fff;
+
+    & > div {
+        padding: 1.5rem;
+    }
+
+}
