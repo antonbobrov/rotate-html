@@ -20,6 +20,7 @@ import element from "./element";
  * 
  * Rotate your HTML blocks vertically
  * @param {Prop} prop 
+ * @returns { Returns } Returns methods.
  */
 function htmlRotate(prop = {}) {
     
