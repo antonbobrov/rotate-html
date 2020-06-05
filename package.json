@@ -1,6 +1,6 @@
 {
   "name": "rotate-html",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Rotate your HTML blocks vertically",
   "main": "dist/index.js",
   "jsdelivr": "dist/cdn/index.js",
