@@ -5,6 +5,7 @@ import element from "./element";
  * @property { string | HTMLElement } [selector=#html-rotate] The selector of the element.
  * @property { bumber } [rotate=-90] Rotation angle.
  * @property { boolean } [updateOnResize=true] Update sizes on resize.
+ * @property { boolean } [fitParentHeight=false] Make width of the wrapper equal to height of the outer's parent.
  */
 
 /**
@@ -30,7 +31,8 @@ function htmlRotate(prop = {}) {
     const DEFAULT_PROP = {
         selector: '#html-rotate',
         rotate: -90,
-        updateOnResize: true
+        updateOnResize: true,
+        fitParentHeight: false
     };
     prop = Object.assign(DEFAULT_PROP, prop);
 
@@ -63,16 +65,26 @@ function htmlRotate(prop = {}) {
     // calculate sizes and rotate the block
     function update() {
 
+        // get parent for fit-sizes
+        const parent = outer.parentElement;
+
+        // apply outer styles
         outer.style.position = 'relative';
 
+        // rotate inner content
         wrap.style.position = 'absolute';
         wrap.style.display = 'inline-block';
-        wrap.style.whiteSpace = 'nowrap';
         wrap.style.transform = `rotate(${getRotationAngle()}deg)`;
+        if (prop.fitParentHeight) {
+            wrap.style.width = parent.clientHeight + 'px';
+        }
+        else {
+            wrap.style.whiteSpace = 'nowrap';
+        }
 
         // get content sizes
-        const width = wrap.clientWidth,
-            height = wrap.clientHeight;
+        const width = wrap.clientWidth;
+        const height = wrap.clientHeight;
 
         // apply new sizes to the outer
         outer.style.height = width + 'px';

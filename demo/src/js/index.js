@@ -11,9 +11,12 @@ elements.forEach(el => {
 
         rotation = parseInt(rotation);
 
+        const fitHeightAttr = el.getAttribute("data-fitParentHeight");
+
         htmlRotate({
             selector: el,
-            rotate: rotation
+            rotate: rotation,
+            fitParentHeight: fitHeightAttr ? true : false
         });
 
     }
